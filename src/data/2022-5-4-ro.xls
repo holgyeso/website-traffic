@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Autentificare</title>		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="https://www.brat.ro/design/css/main.css?v=8" rel="stylesheet" type="text/css" media="screen, projection"/>
+				<link href="https://www.brat.ro/design/css/jquery.qtip.min.css" media="screen, projection" rel="stylesheet" type="text/css" >
+<link href="https://www.brat.ro/libraries/javascript/jQuery/plugins/fancybox/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css" >
+		
+		<script type="text/javascript" src="https://www.brat.ro/libraries/javascript/jQuery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="https://www.brat.ro/libraries/javascript/jQuery/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="https://www.brat.ro/libraries/javascript/jQuery/jquery.validate.js"></script>
+<script type="text/javascript">
+    //<!--
+$(document).ready(function() {
+		 var myForm = $("#login");
+		   myForm.validate({
+		   	//	debug:true,
+		         errorClass: "errormessage",
+		         onkeyup: false,
+		         errorClass: "error",
+		         validClass: "valid",
+		         rules: {
+            email:{required:true,email:true},
+            password:{required:true}
+        },
+		         messages: {
+            email:{required:"Adresa de email nu este valida!", email:"Adresa de email nu este valida!"},
+            password:{required:"Nu ati introdus nicio parola!"}
+        },         
+			     errorPlacement: function(error, element){
+			        var elem = $(element), corners = ["right center", "left center"], flipIt = elem.parents("span.right").length > 0;
+			        
+			        if(!error.is(":empty")) {
+			           elem.filter(":not(.valid)").qtip({
+			              overwrite: false,
+			              content: error,
+			              position: {
+			                 my: corners[ flipIt ? 0 : 1 ],
+			                 at: corners[ flipIt ? 1 : 0 ],
+			                 viewport: $(window)
+			              },
+			              show: {event: false,ready: true},
+			              hide: false,
+			              style: {classes: "ui-tooltip-red"}
+			           })
+			           .qtip("option", "content.text", error);
+			        }
+			        else{elem.qtip("destroy");}
+		         },
+		         success: $.noop
+		   })		
+		})    //-->
+</script>
+<script type="text/javascript" src="https://www.brat.ro/libraries/javascript/jQuery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		
+					</head>
+<body>
+<script src="https://www.brat.ro/libraries/javascript/cookies_warning.js?v2"></script>
+        <div id="using_cookies" style="display: none; position: relative; top: 0; left: 0; font-family: Arial, sans-serif; font-size: 12px; z-index: 99999999999999; text-align: center; width: 100%; background-color: #eeeeee; padding: 5px 0;">
+                Noi stocăm și/sau accesăm informații pe un dispozitiv, cum ar fi identificatori unici &icirc;n cookie-uri pentru procesarea datelor cu caracter personal. <u><strong><a href="/cookies#PoliticaCookie" onclick="return removeCookieWarning();">Mai multe detalii</a></strong></u>.<br />
+Noi prelucram date pentru a permite website-ului sa functioneze. Beneficiati de drepturile prevazute de art. 15-22 din GDPR in legatura cu prelucrarea datelor cu caracter personal.<br />
+Aceste drepturi pot fi exercitate prin modalitatea indicata <strong><u><a href="/cookies#intrebari" onclick="return removeCookieWarning();">aici</a></u></strong>. Navigand in continuare pe acest site, acceptati folosirea tuturor Tehnologiilor de tip Cookie strict necesare.        <span style="cursor: pointer; margin-left: 15px;" onclick="return removeCookieWarning();">X</span>
+    </div>        
+
+    <div id="topMenu">
+        <div id="topMenuContent" class="clearfix">
+            <div class="goLeft">
+                                    <form action="/cont/autentificare" method="post">
+                        <label class="setFontT1 setTop1 textSize15 goLeft alternateColor0">Login:</label>
+                        <div class="inputT1 setInputWidth1 goLeft prefix10"><input type="text" value="Email" onfocus="if(this.value == 'Email') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Email'; }" name="email" /></div>
+                        <div class="inputT1 setInputWidth1 goLeft prefix10"><input type="password" value="Parola" onfocus="if(this.value == 'Parola') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Parola'; }" name="password" /></div>
+                        <div class="submitT1 goLeft prefix10">
+                            <input type="hidden" name="next_url" value="" />
+                            <input type="submit" value="Login" /> 
+                        </div>
+                        
+                        <div class="submitT1 goLeft prefix10">
+                            <button type="button" onclick="window.location = '/informatii-despre-accesul-platit-la-rezultatele-brat'; return false;">Creare cont</button>
+                        </div>
+                    </form>
+                            </div>
+
+            <div class="goRight">
+                <form action="/cautare" method="GET">
+                    <label class="setFontT1 setTop1 textSize15 goLeft alternateColor0">Cauta: </label>
+                    <div class="inputT1 setInputWidth2 goLeft prefix10"><input type="text" value="Cauta dupa..." onfocus="if(this.value == 'Cauta dupa...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Cauta dupa...'; }" name="keyword"/></div>
+                    <div class="submitT1 goLeft prefix10"><input type="submit" value="Cauta" /></div>
+                </form>
+            </div>
+
+            <div class="goRight" style="margin-right: 5px; margin-top: 5px;">
+                                <a href="javascript:;"><img src="https://www.brat.ro/design/images/ro.png" /></a>
+                <a href="/cont/autentificare?lang=en"><img src="https://www.brat.ro/design/images/en.png" /></a>
+            </div>
+        </div><!--end topMenuContent-->
+    </div><!--end topMenu-->
+<div id="header">
+    <div id="headerContent" class="clearfix">
+        <ul id="logoNav">
+            <li class="logoBrat">
+                <a href="/">
+                    <img src="/design/images/brat-logo_3.png" alt="BRAT" />
+                </a>
+            </li>
+
+            <li class="logoAudit">
+                <a href="/audit-tiraje">AUDIT TIRAJE</a>
+            </li>
+
+            <li class="logoSna">
+                <a href="/sna">SNA</a>
+            </li>
+
+            <li class="logoSati">
+                <a href="/sati">SATI</a>
+            </li>
+            <li class="logoSao">
+                <a href="/sao/">SAO</a>
+            </li>
+            <li class="logoMip">
+                <a href="/mip">MIP</a>
+            </li>
+        </ul>
+
+        <ul id="mainNav">
+                                                <li><a href="/ce-este-brat">Ce este BRAT?</a></li>
+                                    <li><a href="/stiri">Centru media</a></li>
+                                    <li><a href="/evenimente">Evenimente</a></li>
+                                    <li><a href="/afilieri-internationale">Afilieri internationale</a></li>
+                                    <li><a href="/brat-in-media">BRAT in media</a></li>
+                                    </ul>
+    </div>
+</div>
+
+
+    <div id="container" class="clearfix">
+        <div id="sideMenuTop"><!-- --></div>
+        <div id="sideMenuMiddle" class="clearfix">
+			
+<div id="sideMenu">
+    <ul>
+                            
+                                    
+                    <li class="">
+                        <a href="/membri">Membri</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/aderare">Aderare la organizatie</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/organizatie">Organizatie</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/statut">Statut BRAT</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/rofbrat">ROF BRAT</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/consiliul-director">Consiliu Director</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/audit-tiraje">Audit tiraje</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/sna">SNA FOCUS</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/sati">SATI</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/satidmp">SATI DMP</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/sao">SAO</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/mip">MIP</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/protectia-datelor">Departamentul Protectia Datelor</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/dsm">Departamentul Social Media</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/scoala-media">Scoala de Media</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/studiu-podcast">Studiu Podcast</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/angajati">Echipa</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/sesizari">Sesizari</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/newsletters">Newsletter</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/parteneri">Parteneri</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/legislatie">Legislatie</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/contacte">Contacte</a>
+
+                                            </li>
+
+                                        
+                    <li class="">
+                        <a href="/cariere">Cariere</a>
+
+                                            </li>
+
+                            
+                        </ul>
+</div><!--end sideMenu-->
+			                                                
+        <div id="content" class="clearfix">
+                <div class="boxT1">
+                        <div class="setPaddHead1 clearfix">
+                            <div class="textSize30 setFontT1 goLeft">Autentificare</div>
+                        </div>
+                    
+                                         
+                        
+                    <div class="setPaddT1">
+                            <div class="boxT1 setPadd20">
+                                <form id="login" action="https://www.brat.ro/cont/autentificare/" method="post" onsubmit="">                                   
+									<div class="clearfix setBott10">
+										<div class="goLeft setWidth7Col alignRight setTop5"></div>
+                                        <div class="goLeft prefix20 textSize12">
+											Acces <span style="color: #F06D65; font-weight: bold;">GRATUIT</span> doar pentru <span style="color: #F06D65;">membri BRAT</span>! Va rugam sa va autentificati:
+										</div>
+                                    </div><!--end clearfix-->
+                                    <div class="clearfix setBott10">
+                                        <div class="goLeft setWidth6Col textSize15 alignRight setTop5"><label><strong>Email:</strong></label></div>
+                                        <div class="goLeft prefix20"><div class="inputT2 setInputWidth3">
+<input type="text" name="email" id="email" value="" size="40"></div></div>
+                                    </div><!--end clearfix-->
+
+                                    <div class="clearfix setBott10">
+                                        <div class="goLeft setWidth6Col textSize15 alignRight setTop5"><label><strong>Parola:</strong></label></div>
+                                        <div class="goLeft prefix20"><div class="inputT2 setInputWidth3">
+<input type="password" name="password" id="password" value="" size="46"></div></div>
+                                    </div><!--end clearfix--> 
+                                    
+                                    <div class="clearfix setBott10">
+                                        <div class="goLeft" style="margin-left: 205px;">
+                                            <a href="/informatii-despre-accesul-platit-la-rezultatele-brat">Creare cont</a>
+                                        </div>
+                                        <div class="goRight" style="margin-right: 205px;">
+                                            <a href="/newsletter" class="prefix10">Vreau sa ma abonez la newsletter</a>
+                                        </div>                                        
+                                    </div>
+                                    
+                                    <div class="clearfix setBott10">
+                                        <div class="goLeft setWidth6Col textSize15 alignRight setTop5">&nbsp;</div>
+                                        <div class="goLeft prefix20">
+                                            <div class="submitBtnT1 submitBtnWidth2 goLeft">
+                                            
+<input type="hidden" name="next_url" value="" id="next_url">
+<input type="submit" name="submit" id="submit" value="Autentificare">                                            </div>
+                                        </div>
+                                    </div><!--end clearfix-->
+									<div class="clearfix setBott10">
+                                        <div class="goLeft setWidth6Col textSize15 alignRight setTop5">&nbsp;</div>
+                                        <div class="goLeft prefix20">
+                                            <a href="/cont/recupereaza-parola">Recupereaza parola</a>
+                                        </div>
+                                    </div><!--end clearfix-->
+                                </form>
+                            </div><!--END boxT1-->
+                    </div><!--end padd20-->
+                </div><!--end boxT1-->
+            </div><!-- end content-->        </div><!--end sideMenuMiddle-->
+        <div id="sideMenuBottom"><!-- --></div>
+    </div><!--end container-->
+	<div id="footer">
+    <div class="boxT1 setBott10 setPadd clearfix">
+        <ul class="listT1 setListWidth1 goLeft textSize11">
+                                                <li><a href="/newsletter">Newsletter</a></li>
+                                                        <li><a href="/termeni-si-conditii">Termeni si Conditii</a></li>
+                                                        <li><a href="/contacte">Contact</a></li>
+                    </ul><ul class="listT1 setListWidth1 goLeft prefix10 textSize11">                                    <li><a href="/glosar-de-termeni">Help</a></li>
+                                                        <li><a href="/cookies">Confidentialitate si cookies</a></li>
+                                                        </ul>
+
+        <div class="goRight" id="logoFooter"><img src="/design/images/brat-logo_3.png" /></div>
+        <div class="goRight alignRight textSize11 metaCopy" >
+            Copyright © 2022<br />
+            Biroul Roman de Audit Transmedia<br />
+            Toate drepturile rezervate
+            <br />
+            Solutie web <a href="http://tree.ro">TreeWorks</a>
+        </div>
+    </div>
+</div><!--end footer-->
+	
+	</body>
+</html>

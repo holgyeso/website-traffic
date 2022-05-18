@@ -1,0 +1,35 @@
+version: '3'
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: JupyterDockerfile
+    container_name: jupyter
+    hostname: jupyter
+    user: '0'
+    ports:
+      - '8888:8888'
+    restart: always
+    volumes:
+      - ./jupyter:/home/jovyan/src
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    hostname: influxdb
+    user: '0'
+    ports:
+      - '8086:8086'
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+    restart: always
+  grafana:
+    build:
+      context: .
+      dockerfile: GrafanaDockerfile
+    container_name: grafana
+    hostname: grafana
+    user: '0'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./grafana:/var/lib/grafana

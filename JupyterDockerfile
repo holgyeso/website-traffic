@@ -1,0 +1,5 @@
+FROM jupyter/base-notebook
+
+USER root
+
+RUN pip install pandas xlrd influxdb timedelta
